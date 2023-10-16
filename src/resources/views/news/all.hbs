@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<form method="POST" action="/news/search">
+    <div class="mb-3">
+
+        <input type="text" class="form-control" id="search" name="search">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">stt</th>
+                <th scope="col">name</th>
+                <th scope="col">mo ta</th>
+                <th scope="col">id</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each course}}
+            <tr>
+                <th scope="row">{{sum @index 1 }}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.mota}}</td>
+                <td>{{this._id}}</td>
+                <td><a type="button" href="/news/{{this._id}}/edit" class="btn btn-primary">Cap nhat</a>
+                    <a type="button" href="/news/{{this._id}}/delete" class="btn btn-primary">Xoa</a>
+                    <a type="button" href="/cart/{{this._id}}/add-to-cart" class="btn btn-primary">Them vao gio hang</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
